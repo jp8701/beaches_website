@@ -1,0 +1,177 @@
+:root {
+  --page-0: url('img/00-sardinia.jpg')no-repeat center center/cover;
+  --page-1: url('img/01-seychelles.jpg')no-repeat center center/cover;
+  --page-2: url('img/02-usa.jpg')no-repeat center center/cover;
+  --page-3: url('img/03-south-africa.jpg')no-repeat center center/cover;
+  --page-4: url('img/04-thailand.jpg')no-repeat center center/cover;
+  --page-5: url('img/05-canada.jpg')no-repeat center center/cover;
+  --page-6: url('img/06-brazil.jpg')no-repeat center center/cover;
+  --page-7: url('img/07-australia.jpg')no-repeat center center/cover;
+  --page-8: url('img/08-turks-caicos.jpg')no-repeat center center/cover;
+  --page-9: url('img/09-greece.jpg')no-repeat center center/cover;
+  --page-10: url('img/10-mexico.jpg')no-repeat center center/cover;
+  --image-overlay: rgba(24, 39, 51, 0.5);
+  --animate-speed: 2s;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Page Color */
+#page-0 { background: var(--page-0)}
+#page-1 { background: var(--page-1)}
+#page-2 { background: var(--page-2) }
+#page-3 { background: var(--page-3) }
+#page-4 { background: var(--page-4) }
+#page-5 { background: var(--page-5) }
+#page-6 { background: var(--page-6) }
+#page-7 { background: var(--page-7) }
+#page-8 { background: var(--page-8) }
+#page-9 { background: var(--page-9) }
+#page-10 { background: var(--page-10) }
+
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+  position: relative;
+}
+
+.page > * {
+  z-index: 10;
+  /* position: relative; */
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  display: block;;
+  background-color: var(--image-overlay);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -0;
+}
+
+.page h3 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin: 1rem;
+}
+
+.page p {
+  font-size: 1.3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #f4f4f4;
+  color: #333;
+  border-radius: 50px;
+  text-decoration: none;
+  border: none;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in;
+}
+
+.btn:hover,
+.btn-dark {
+  background: #333;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background: #f4f4f4;
+  color: #333;
+}
+
+/* Page Animation */
+#page-0 h3 {
+  transform: translateY(-1200px);
+  animation: heading var(--animate-speed) forwards ease-in;
+}
+
+#page-0 p {
+  transform: translateX(-1800px);
+  animation: text var(--animate-speed) forwards ease-in 1s;
+}
+
+/* Keyframes */
+@keyframes heading {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes text {
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 500px) {
+  .page {
+    padding: 0 1rem;
+  }
+  
+  .page h3 {
+  font-size: 2rem;
+  line-height: 1;
+  height: 400px;
+  margin-bottom: 3rem;
+  }
+
+  .page p {
+    display: none;
+  }
+
+  .page .btn {
+    display: inline-block;
+    margin: 1rem 0;
+    justify-content: space-between;
+  }
+
+  .btn i {
+    display: none;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 769px) {
+  .page h3 {
+    font-size: 3rem;
+    line-height: 1;
+    height: 100px;
+    margin-bottom: 3rem;
+    }
+    /* resized margin to allow button to be inline */
+    .page p {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    }
+
+    .page div {
+    height: 100px;
+    }
+
+    .page .btn {
+    display: inline-block;
+    margin: 4rem 1rem;
+    justify-content: space-between;
+    }
+}
+
